@@ -12,11 +12,12 @@ function getUserById(userId) {
 export const posts = postsFromServer.map(post => ({
   ...post,
   user: getUserById(post.userId),
-  comments: commentsFromServer.filter(c => c.postId === post.id)}));
+  comments: commentsFromServer.filter(c => c.postId === post.id),
+}));
 
 export const App = () => (
   <section className="App">
     <h1 className="App__title">Static list of posts</h1>
-    <PostList posts={postsFromServer} />
+    <PostList posts={posts} />
   </section>
 );
